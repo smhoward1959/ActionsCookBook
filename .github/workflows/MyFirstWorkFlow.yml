@@ -14,5 +14,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.3.0
       - run: tree
-    
-    
+  Test:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: [first_job]
+    steps:
+    - run: |
+        echo "Hello ${{ vars.WHO_TO_GREET }} from ${{ github.actor }}."
+        sec=$(echo ${{ secret.MY_SECRET }} | sed 's/./& /g')
+        echo "Mysecret is '$sec'."
+  Load-Test:
+    runs-on: ubuntu-latest
+    environment: Load-Test
+    needs: [first_job]
+  Production: 
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: http://writeabout.net
+    needs: [Test, Load-Test]
