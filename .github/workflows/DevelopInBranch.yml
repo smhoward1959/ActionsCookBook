@@ -12,5 +12,5 @@ jobs:
                echo "Workflow triggered in branch '${{ github.ref }}'."
                echo "Workflow triggered in event '${{ github.event_name }}'."
                echo "Workflow triggered in actor '${{ github.actor }}'."
-                 - uses: actions/checkout@v4.3.0
+           - uses: actions/checkout@v4.3.0
                #uses: devops-actions/actionlint@v0.1.9
