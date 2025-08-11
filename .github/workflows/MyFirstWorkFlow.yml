@@ -11,7 +11,7 @@ jobs:
     steps:
       - run: echo "Hello world from ${{github.actor}}."
       - name: Checkout
-        uses: actions/checkoput@v5.0.0
+        uses: actions/checkout@v4.3.0
       - run: tree
     
     
